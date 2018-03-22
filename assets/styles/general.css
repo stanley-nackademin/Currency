@@ -1,0 +1,7 @@
+@import url("reset.css");
+
+body header {
+  background: linear-gradient(180deg, rgb(180, 140, 140), rgb(140, 150, 65));
+  color: black;
+  text-shadow: 1px 1px 10px white;
+}
