@@ -43,10 +43,14 @@ export class CurrencyConverterComponent implements OnInit {
   }
 
   convertCurrency(): void {
+    this.checkAmount();
     this.currencyConverterService.queryConversion(this.conversion).subscribe(
       currency => {
         this.convertedCurrency = currency;
         this.prepareResult();
+
+        // Conversion API not available to free users
+        console.log(currency);
       },
       error => console.log('Error: Could not fetch converted currency.')
     );
@@ -54,6 +58,13 @@ export class CurrencyConverterComponent implements OnInit {
 
   prepareResult(): void {
     this.result = this.convertedCurrency.result;
+  }
+
+  checkAmount(): void {
+    if (isNaN(this.conversion.amount)) {
+      // If amount is not a number, default to 1
+      this.conversion.amount = 1;
+    }
   }
 
 }
