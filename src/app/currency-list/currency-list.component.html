@@ -1,0 +1,22 @@
+<article>
+  <h3>Exchange rates</h3>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <caption>Base currency: &euro;1</caption>
+      <thead class="table-head">
+        <tr>
+          <th scope="col">Currency</th>
+          <th scope="col">Rate</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let key of jsonKeys">
+          <td>{{key}}</td>
+          <td>{{currencies.rates[key]}}</td>
+          <td>{{currencies.date}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</article>
